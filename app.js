@@ -141,7 +141,8 @@
       '<rect width="880" height="540" fill="url(#'+u+'bg)"/><rect width="880" height="540" fill="url(#'+u+'spot)"/>'+puffs(880,540)+bodies.join('')+'</svg>';
   }
   document.querySelectorAll('[data-shot]').forEach(function(el){
-    el.innerHTML = el.getAttribute('data-shot')==='group' ? group() : shot(el.getAttribute('data-shot'));
+    var k=el.getAttribute('data-shot'), names={group:'Fluffy Lab collection',sunscreen:'Fluffy Cloud UV Sunscreen',serum:'Fluffy Dew Glaze Barrier Serum',cleanser:'Fluffy Whipped Bubble Cleanser',jar:'Fluffy Marshmallow Gel-Cream'};
+    el.innerHTML = '<img src="img/'+k+'.webp" alt="'+names[k]+'" width="'+(k==='group'?1760:1000)+'" height="'+(k==='group'?1080:1200)+'" loading="'+(k==='group'?'eager':'lazy')+'">';
   });
 
   var saved='tr'; try{saved=localStorage.getItem('fl-lang')||'tr'}catch(e){}
